@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_question_mark_24.xml" value="0.3225" />
+        <entry key="app/src/main/res/layout/activity_county_detail.xml" value="0.3692708333333333" />
         <entry key="app/src/main/res/layout/activity_county_list.xml" value="0.3692708333333333" />
+        <entry key="app/src/main/res/layout/item_county_data.xml" value="0.375" />
       </map>
     </option>
   </component>
