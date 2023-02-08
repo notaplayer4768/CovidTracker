@@ -1,7 +1,6 @@
 package com.example.covidtracker
 
 import android.os.Parcelable
-import android.text.BoringLayout
 import java.util.*
 import kotlinx.android.parcel.Parcelize
 

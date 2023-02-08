@@ -3,6 +3,9 @@ package com.example.covidtracker
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.covidtracker.databinding.ActivityCountyListBinding
 import retrofit2.Call
@@ -52,5 +55,23 @@ class CountyListActivity : AppCompatActivity() {
         })
         //all the code here... we might not have the data back yet at this point
         //we cant put what to do with the data below the call
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.options_menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.item_option_menu_sortByTransmissionLevel -> {
+                adapter.dataset = adapter.dataset.sortedBy{
+                    it.cdcTransmissionLevel
+                }
+                adapter.notifyDataSetChanged()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

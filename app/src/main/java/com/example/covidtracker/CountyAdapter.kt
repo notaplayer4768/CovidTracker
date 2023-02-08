@@ -4,6 +4,8 @@
 
 package com.example.covidtracker
 import android.content.Intent
+import android.graphics.Color
+import android.util.Log.i
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,6 +50,32 @@ RecyclerView.Adapter<CountyAdapter.ViewHolder>(){
         viewHolder.layout.setOnClickListener{
             Toast.makeText(it.context, countyData.toString(), Toast.LENGTH_SHORT).show()
         }
+        if(countyData.cdcTransmissionLevel == 0)
+        {
+            viewHolder.textViewTitle.setTextColor(Color.rgb( 40, 141, 252))
+            viewHolder.textViewTitle.setCompoundDrawablesRelativeWithIntrinsicBounds(0,0,0,0)
+
+            //blue
+        }
+        else if(countyData.cdcTransmissionLevel == 1)
+        {
+            viewHolder.textViewTitle.setTextColor(Color.rgb( 255, 245, 57))
+            viewHolder.textViewTitle.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_moderate_risk_24,0,0,0)
+            //warning + yellow
+        }
+        else if(countyData.cdcTransmissionLevel == 2)
+        {
+            viewHolder.textViewTitle.setTextColor(Color.rgb( 253, 114, 63))
+            viewHolder.textViewTitle.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_substantial_risk_24,0,0,0)
+            //open orange + ornage
+        }
+        else if(countyData.cdcTransmissionLevel == 3)
+        {
+            viewHolder.textViewTitle.setTextColor(Color.rgb( 252, 13, 27))
+            viewHolder.textViewTitle.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_high_risk_24,0,0,0)
+            // full red + red
+        }
+
     }
 
     override fun getItemCount(): Int {
